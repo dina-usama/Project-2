@@ -1,0 +1,10 @@
+﻿  DEF.cpp
+C:\Users\dina_\Desktop\Fall 2019\DD2\project 2\miniproject_final\SourceCode\DEF.h(24,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\dina_\Desktop\Fall 2019\DD2\project 2\miniproject_final\SourceCode\DEF.h(34,21): warning C4018: '<': signed/unsigned mismatch
+  main22.cpp
+C:\Users\dina_\Desktop\Fall 2019\DD2\project 2\miniproject_final\SourceCode\DEF.cpp(142,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\dina_\Desktop\Fall 2019\DD2\project 2\miniproject_final\SourceCode\DEF.h(24,21): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+C:\Users\dina_\Desktop\Fall 2019\DD2\project 2\miniproject_final\SourceCode\DEF.h(34,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\dina_\Desktop\Fall 2019\DD2\project 2\miniproject_final\SourceCode\DEF.h(29): warning C4715: 'comp_def::fid': not all control paths return a value
+  DP_2.vcxproj -> C:\Users\dina_\Desktop\Fall 2019\DD2\project 2\miniproject_final\SourceCode\Debug\DP_2.exe
