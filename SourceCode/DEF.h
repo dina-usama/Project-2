@@ -18,6 +18,7 @@ struct comp_def
 	string ori;
 	double xwidth;
 	double ylength;
+	
 
 	vector<pin> fid(string lf, vector<component> c)
 	{
@@ -46,7 +47,7 @@ struct pins_def
 {
 	string name;
 	string layer;
-	string pos_x, pos_y;
+	double pos_x, pos_y;
 	string ori;
 };
 
@@ -85,6 +86,7 @@ public:
 	vector<net> nets;
 	vector<routing> route;
 	DEF(string in_file, vector<component> ct);
+	double unitd;
 };
 
 

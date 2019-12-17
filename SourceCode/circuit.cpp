@@ -31,7 +31,7 @@ circuit::circuit(string in)
 		if (temp.find("MICRONS") != -1)
 		{
 			string u = temp.substr(19, temp.find(" ",19)-19);
-			cout << u << endl;
+			//cout << u << endl;
 
 			unit = stoi(u);
 		}
@@ -84,8 +84,8 @@ circuit::circuit(string in)
 			{
 				string xs = temp.substr(7, temp.find("BY") - 7-1);
 				string ys = temp.substr(temp.find("BY") + 3, temp.find(';') - (temp.find("BY") + 3));
-				cout << xs << endl;
-				cout << ys << endl;
+				//cout << xs << endl;
+				//cout << ys << endl;
 				comp[count].xwidth = stod(xs);
 				comp[count].ylength = stod(ys);
 

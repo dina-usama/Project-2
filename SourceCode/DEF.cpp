@@ -28,6 +28,14 @@ DEF::DEF(string in_filename, vector<component> ct)
 		}
 
 		*/
+
+		if (temp.find("MICRONS") != -1)
+		{
+			string u = temp.substr(23, temp.find(" ", 23) - 23);
+			cout << u << endl;
+
+			unitd = stoi(u);
+		}
 		if (x = temp.find("COMPONENTS") != -1)
 		{
 			string st;
@@ -63,7 +71,7 @@ DEF::DEF(string in_filename, vector<component> ct)
 						s.posy = stod(posy);
 					}
 						xx = temp.find(";");
-						st = temp.substr(yy + 2, xx- (yy+2));
+						st = temp.substr(yy + 2, xx- (yy+2+1));
 						s.ori = st;
 						cd.push_back(s);
 					}
@@ -89,8 +97,8 @@ DEF::DEF(string in_filename, vector<component> ct)
 				getline(input, temp);
 				//	cout << temp << endl;
 				string nn = temp.substr(temp.find('('), temp.find(')') - 10);
-				p.pos_x = nn.substr(2, nn.find(" ", 2) - 2);
-				p.pos_y = nn.substr(nn.find(" ", 2) + 1, nn.find(')') - nn.find(" ", 2) - 2);
+				p.pos_x = stod (nn.substr(2, nn.find(" ", 2) - 2) );
+				p.pos_y =stod ( nn.substr(nn.find(" ", 2) + 1, nn.find(')') - nn.find(" ", 2) - 2) );
 				p.ori = temp.substr(temp.find(')') + 2, temp.find(';') - temp.find(')') - 3);
 				pns.push_back(p);
 				getline(input, temp);
@@ -122,8 +130,6 @@ DEF::DEF(string in_filename, vector<component> ct)
 				if (temp[0] == '-')
 				{
 					st = temp.substr(2, string::npos);
-					if (st == "RST_I")
-						cout << "here" << endl;
 					n.netname = st;
 					n.ncp.clear();
 					getline(input, temp);
@@ -139,14 +145,30 @@ DEF::DEF(string in_filename, vector<component> ct)
 						xx = temp.find(" ", yy + 1);
 						st = temp.substr(yy + 1, xx - yy - 1);
 						nn.pin = st;
-						for (int i = 0; i < cd.size(); i++)
-						{
-							if (cd[i].nikename == nn.nickname)
+						if(nn.nickname != "PIN")
+							for (int i = 0; i < cd.size(); i++)
 							{
-								nn.cm = cd[i];
-								break;
+								if (cd[i].nikename == nn.nickname)
+								{
+									nn.cm = cd[i];
+									break;
+								}
 							}
+							
+						else
+						{
+							for (int i = 0; i < this->pns.size(); i++)
+							{
+								if (nn.pin == pns[i].name)
+								{
+									nn.cm.posx = pns[i].pos_x;
+									nn.cm.posy = pns[i].pos_y;
+								}
+
+							}
+
 						}
+						
 						n.ncp.push_back(nn);
 						getline(input, temp);
 						//	cout << temp << endl;
